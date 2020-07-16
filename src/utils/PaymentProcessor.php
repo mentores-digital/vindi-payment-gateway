@@ -750,7 +750,7 @@ class VindiPaymentProcessor
   {
     if (
       'credit_card' == $this->payment_method_code() &&
-      isset(filter_var($_POST['vindi_cc_installments'], FILTER_SANITIZE_NUMBER_INT))
+      isset($_POST['vindi_cc_installments'])
     ) {
       return filter_var($_POST['vindi_cc_installments'], FILTER_SANITIZE_NUMBER_INT);
     }

@@ -146,7 +146,7 @@ abstract class VindiPaymentGateway extends WC_Payment_Gateway_CC
    */
   public function get_country_code()
   {
-    if (isset(filter_var($_GET['order_id'], FILTER_SANITIZE_NUMBER_INT))) {
+    if (isset($_GET['order_id'])) {
       $order = new WC_Order(filter_var($_GET['order_id'], FILTER_SANITIZE_NUMBER_INT));
       return $order->billing_country;
     } elseif ($this->vindi_settings->woocommerce->customer->get_billing_country()) {
